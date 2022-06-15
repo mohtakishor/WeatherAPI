@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "433b340f-1916-4cd7-9cc8-8e694e2a6afb",
+		"name": "WeatherTestingCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20843548"
+	},
+	"item": [
+		{
+			"name": "Weather Report Testing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"verify longitute\", () => {",
+							"  const responseJson = pm.response.json();",
+							"  pm.expect(responseJson.coord.lon).to.eql(-0.13);",
+							"});",
+							"pm.test(\"verify latitude\", () => {",
+							"  const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.coord.lat).to.eql(51.51);",
+							"});",
+							"",
+							"pm.test(\"verify latitude\", () => {",
+							"  const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.name).to.eql(\"London\");",
+							"});",
+							"",
+							"pm.test(\"verify latitude\", () => {",
+							"  const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.sys.country).to.eql(\"GB\");",
+							"});",
+							"",
+							"pm.test(\"verify latitude\", () => {",
+							"  const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.sys.country).to.eql(\"GB\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d28\n9e10d714a6e88b30761fae22.",
+					"protocol": "https",
+					"host": [
+						"samples",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London,uk"
+						},
+						{
+							"key": "appid",
+							"value": "b6907d28\n9e10d714a6e88b30761fae22."
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
